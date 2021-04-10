@@ -19,6 +19,10 @@ The 74173 illustrates the use of a quad flipflop being used as a storage registe
 
 The LED and switch circuit simulation is reminiscent of the "Front Panels" from the minicomputers of the 1960s and the very early home computer kits of the early 1970s, which used toggle switches and indicator lamps to enter data into the machine and read back numerical results.
 
+# Lesson 2 Program Counter and Memory
+
+# Lesson 3 Arithmetic and Logic Unit ALU
+
  
 
 
