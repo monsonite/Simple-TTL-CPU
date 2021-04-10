@@ -27,7 +27,7 @@ The program counter is constructed from a pair of common 74xx163 4-bit counters 
 
 On the receipt of a positive going clock pulse, the counter increments its total by 1.
 
-The counter has four outputs Q0,Q1,Q2 and Q3 which will count up the 4-bit binary sequence 0,1,2,3,4,5,6,7,8,9,10,11,12,,13,14,15. On reaching 15 the "ripple carry output" is asserted which is used to increment the next 4-bit stage.
+The counter has four outputs Q0,Q1,Q2 and Q3 which will count up the 4-bit binary sequence 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15. On reaching 15 the "ripple carry output" is asserted which is used to increment the next 4-bit stage.
 
 Each counter has 4 parallel load inputs. By setting these and asserting the /LD input, the counter will be preset to a given count. The counter will then continue to count upwards from the given count.
 
