@@ -23,6 +23,17 @@ The LED and switch circuit simulation is reminiscent of the "Front Panels" from 
 
 # Lesson 3 Arithmetic and Logic Unit ALU
 
+This lesson introduces the Arithmetic Logic unit or ALU, which is initially presented as a 4-bit building block.
+
+This design has been adapted from a design by Dieter Muller - a TTL computer enthusiast.
+
+It is based entirely on combinational logic, with the outputs being defined solely by the logic levels applied to the inputs.
+
+It allows a 4-bit ALU slice to be constructed from just 5 common TTL ICs. It uses four 74xx153 multiplexers to create the logic unit and a 4-bit adder 74xx283 to provide addition and subtraction.
+
+This makes a very economical ALU capable of AND, OR, XOR, NOT, ADD, SUB, INC, DEC and NEG using readily available TTL devices.
+
+It could always be reduced to logic look up tables stored in a 16K ROM, but this solution is likely to be simpler, cheaper and faster.
  
 
 
