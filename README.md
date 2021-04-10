@@ -21,6 +21,18 @@ The LED and switch circuit simulation is reminiscent of the "Front Panels" from 
 
 # Lesson 2 Program Counter and Memory
 
+In this exercise I introduce the Program Counter and the concept of Memory addressing. 
+
+The program counter is constructed from a pair of common 74xx163 4-bit counters that are cascaded together to create an 8-bit counter. This could be further extended easily to 12 or even 16 bits.
+
+On the receipt of a positive going clock pulse, the counter increments its total by 1.
+
+The counter has four outputs Q0,Q1,Q2 and Q3 which will count up the 4-bit binary sequence 0,1,2,3,4,5,6,7,8,9,10,11,12,,13,14,15. On reaching 15 the "ripple carry output" is asserted which is used to increment the next 4-bit stage.
+
+Each counter has 4 parallel load inputs. By setting these and asserting the /LD input, the counter will be preset to a given count. The counter will then continue to count upwards from the given count.
+
+This is the mechanism that allows a stored program to be executed and jump from one location to another.
+
 # Lesson 3 Arithmetic and Logic Unit ALU
 
 This lesson introduces the Arithmetic Logic unit or ALU, which is initially presented as a 4-bit building block.
