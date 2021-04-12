@@ -1,5 +1,5 @@
 # Simple-TTL-CPU
-A design and simulation of a simple TTL CPU using H. Neeman's "Digital" simulator
+A design and simulation of a simple 4-bit TTL CPU "Nybble" using H. Neeman's "Digital" simulator
 
 This project aims to provide a series of step by step lessons on building a simple TTL cpu from scratch.
 
@@ -60,6 +60,16 @@ The diode matrix is a very cost effective of creating a small, and fairly fast R
 The arrangement I have shown can be expanded to a 16 x 8-bit ROM.
 
 Other recent progress a simplification of the Front Panel-Memory schematic and the inclusion of a 4-bit 74194 universal shift register in the ALU (instead of the 4-bit 74173 register) to allow left and right shifts.
+
+# Exercise 5 Nybble
+
+The file Nybble_6.dig combines the three main building blocks of the system.
+
+There is sufficient circuitry to enter data from the front-panel switches into memory. 
+
+The ALU can be controlled manually and shows the results of using either a plain register or a universal shift register as the Accumulator.
+
+The Instruction Decoder allows efficient control of the ALU.
 
 
  
