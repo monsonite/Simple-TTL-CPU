@@ -7,7 +7,7 @@ Instead of using real TTL chips, breadboards and jumper wires, the project will 
 
 Once "Digital" has been installed, the user will be able to download and interact with the various .dig simulation files.
 
-# Lesson 1. LEDS and Switches.
+# Exercise 1. LEDS and Switches.
 
 This creates a simple LED and Switch interface which allows the user to enter binary data using "toggle" switches and display the data on an array of single LEDs and also in hexadecimal form using the 7-segment display component.
 
@@ -19,7 +19,7 @@ The 74173 illustrates the use of a quad flipflop being used as a storage registe
 
 The LED and switch circuit simulation is reminiscent of the "Front Panels" from the minicomputers of the 1960s and the very early home computer kits of the early 1970s, which used toggle switches and indicator lamps to enter data into the machine and read back numerical results.
 
-# Lesson 2 Program Counter and Memory
+# Exercise 2 Program Counter and Memory
 
 In this exercise I introduce the Program Counter and the concept of Memory addressing. 
 
@@ -33,9 +33,9 @@ Each counter has 4 parallel load inputs. By setting these and asserting the /LD 
 
 This is the mechanism that allows a stored program to be executed and jump from one location to another.
 
-# Lesson 3 Arithmetic and Logic Unit ALU
+# Exercise 3 Arithmetic and Logic Unit ALU
 
-This lesson introduces the Arithmetic Logic unit or ALU, which is initially presented as a 4-bit building block.
+This exercise introduces the Arithmetic Logic unit or ALU, which is initially presented as a 4-bit building block.
 
 This design has been adapted from a design by Dieter Muller - a TTL computer enthusiast.
 
@@ -46,6 +46,22 @@ It allows a 4-bit ALU slice to be constructed from just 5 common TTL ICs. It use
 This makes a very economical ALU capable of AND, OR, XOR, NOT, ADD, SUB, INC, DEC and NEG using readily available TTL devices.
 
 It could always be reduced to logic look up tables stored in a 16K ROM, but this solution is likely to be simpler, cheaper and faster.
+
+# Exercise 4 Instruction Decoder
+
+This building block introduces the Instruction Decoder. It is used to convert one or more bit-fields of the instruction word and produces a set of control signals that are used to manipulate the hardware including the ALU, memory and registers.
+
+In this design it takes the upper 4-bits from a byte in memory and decodes them into 16 individual instructions using a pair of 3-8 line decoders (74xx138) and a diode matrix. The diode matrix works as a primitive ROM.
+ 
+When the 74138 lowers one of the horizontal selection signals, the presence of a diode in the matrix will pull down one of the corresponding vertical (output) signals. The 74540 is an octal inverter/driver which inverts the output from the diode matrix and sends it on to the ALU control inputs or wherever it is needed.
+ 
+The diode matrix is a very cost effective of creating a small, and fairly fast ROM - in hardware. The idea was originally used in early desktop calculators in the late 1960s, - but this iteration has been borrowed from the Gigatron TTL computer.
+
+The arrangement I have shown can be expanded to a 16 x 8-bit ROM.
+
+Other recent progress a simplification of the Front Panel-Memory schematic and the inclusion of a 4-bit 74194 universal shift register in the ALU (instead of the 4-bit 74173 register) to allow left and right shifts.
+
+
  
 
 
