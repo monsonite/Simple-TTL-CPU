@@ -1,5 +1,5 @@
 # Simple-TTL-CPU
-A design and simulation of a simple 4-bit TTL CPU "Nybble" using H. Neeman's "Digital" simulator
+A design and simulation of a simple cpu using H. Neeman's "Digital" simulator
 
 This project aims to provide a series of step by step lessons on building a simple TTL cpu from scratch.
 
@@ -86,7 +86,11 @@ NEG  Two's complement, invert all Accumulator bits and add 1
 The ALU is constructed from combinatorial logic, using approximately 20 to 30 gates for each bit of the operand wordsize. It is common to use a bitslice approach to designing an ALU, combining identical stages to produce the full unit.
 
 
-The Control Unit coordinates the operation of all the functional elements that make up the cpu. It decodes the instruction from memory and generates a number of control signals that synchronise the reading and writing to memory and registers, as well as controlling the operation of the ALU.
+The Control Unit coordinates the operation of all the functional elements that make up the cpu. 
+
+It decodes the instruction from memory and generates a number of control signals that synchronise the reading and writing to memory and registers, as well as controlling the operation of the ALU.
+
+The control unit is also usually constructed from combinatorial logic, with some signals gated by the system clock, so that they occur either the low phase or the high phase of the system clock.
 
 
 
