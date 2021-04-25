@@ -7,7 +7,7 @@ Instead of using real TTL chips, breadboards and jumper wires, the project will 
 
 Once "Digital" has been installed, the user will be able to download and interact with the various .dig simulation files.
 
-#Gate and Chip Level Design
+# Gate and Chip Level Design
 
 "Digital" provides a convenient means of "breadboarding" logic circuits and then testing their behaviour. Circuits can be saved and used to form a custom library, which may be used within a heirarchical design.
 
@@ -15,7 +15,7 @@ The User may choose to design at a gate level - using nothing but Nand gates, in
 
 If gate level design is not desirable, the "Digital" simulator contains a library of standard TTL integrated circuits and popular memory devices. Whilst these allow more rapid progress, the designer is constrained by the number of pins on a typical TTL package, and most functions are limited to a 4 or 8-bit width. This means that wider logic functions will need multiple TTL packages to implement often accompanied by not insignificant wiring.
 
-#Understanding the Operation of a Simple CPU
+# Understanding the Operation of a Simple CPU
 
 For convenience a cpu can be subdivided into a series of functional modules, and these modules can be further subdivided down into a series of logic building blocks. If the User is suitably interested, the building blocks may be further analysed down to the individual gates. Each level of this analysis masks the underlying complexity of the layers below.
 
@@ -28,10 +28,15 @@ A 4-bit machine may be implemented in around 20 ICs, an 8-bit machine in about 4
 A simple stored program computer may be defined by 5 fundamental modules:
 
 Input
+
 Output
+
 Memory
+
 Arithmetic & Logic
+
 Control
+
 
 These modules may be further expressed in terms of their function.  For example Input might be in the form of binary toggle switches on the front panel accompanied by LEDs or hex displays to indicate the output. With further complexity, text input and output might be provided from a serial terminal. From the late 1970s and the advent of home computers, input was from an array of some 40+ keyboard switches and output was in character and graphics form to a TV display or CRT monitor.
 
@@ -41,7 +46,47 @@ Memory can also exist in the form of storage registers, where temporary results 
 
 The popular 6502, designed for low cost and complexity is an example of a microprocessor that uses very few (3) user registers. This was partly compensated for by allowing easy access to the "zero page" of RAM, where operands and results could be stored conveniently.
 
-Most modern processors have a larger number of user registers:  PDP 11 (8), MSP430 (16), AVR (32). This allows greater flexibility in programming and is essential for efficient hosting of high level languages such as C.  
+Most modern processors have a larger number of user registers:  PDP 11 (8), MSP430 (16), AVR (32). This allows greater flexibility in programming and is essential for efficient hosting of high level languages such as C.
+
+
+Binary arithmetic and boolean logic is fundamental to digital computing and so the Arithmetic and Logic Unit (ALU) is central to the operation of the cpu.  The ALU usually has two operand inputs, from either memory or registers. It performs a binary operation on these operands, such as addition, and produces a result which is stored back into a register, often known as the Accumulator, or back into memory.
+
+A simple ALU requires a minimum of addition, inversion and bitwise Boolean AND. However, most ALUs have a richer set of operations to make programming easier. These operations will include some of the following:
+
+AND  Boolean AND
+
+OR   Boolean OR
+
+XOR  Boolean XOR
+
+ADD  Addition
+
+SUB  Subtraction
+
+
+Whilst these operations above use two operands, there are some operations that only apply to the Accumulator. These include:
+
+Load Accumulator from Memory
+
+Store Accumulator to Memory
+
+Clear Accumulator
+
+Complement Accumulator
+
+INC  Increment Accumulator
+
+DEC  Decrement Accumulator
+
+INV  One's complement or invert all Accumulator bits
+
+NEG  Two's complement, invert all Accumulator bits and add 1
+
+
+The ALU is constructed from combinatorial logic, using approximately 20 to 30 gates for each bit of the operand wordsize. It is common to use a bitslice approach to designing an ALU, combining identical stages to produce the full unit.
+
+
+The Control Unit coordinates the operation of all the functional elements that make up the cpu. It decodes the instruction from memory and generates a number of control signals that synchronise the reading and writing to memory and registers, as well as controlling the operation of the ALU.
 
 
 
