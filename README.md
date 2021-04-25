@@ -7,6 +7,46 @@ Instead of using real TTL chips, breadboards and jumper wires, the project will 
 
 Once "Digital" has been installed, the user will be able to download and interact with the various .dig simulation files.
 
+#Gate and Chip Level Design
+
+"Digital" provides a convenient means of "breadboarding" logic circuits and then testing their behaviour. Circuits can be saved and used to form a custom library, which may be used within a heirarchical design.
+
+The User may choose to design at a gate level - using nothing but Nand gates, in a similar fashion to the modules created in the "Nand to Tetris" online course. A complete computer can be designed form modules constructed entirely from Nand Gates.  The 16-bit "Hack" computer described in the "Nand to Tetris" course may be constructed from approximately 1600 Nand gates, not including memory.
+
+If gate level design is not desirable, the "Digital" simulator contains a library of standard TTL integrated circuits and popular memory devices. Whilst these allow more rapid progress, the designer is constrained by the number of pins on a typical TTL package, and most functions are limited to a 4 or 8-bit width. This means that wider logic functions will need multiple TTL packages to implement often accompanied by not insignificant wiring.
+
+#Understanding the Operation of a Simple CPU
+
+For convenience a cpu can be subdivided into a series of functional modules, and these modules can be further subdivided down into a series of logic building blocks. If the User is suitably interested, the building blocks may be further analysed down to the individual gates. Each level of this analysis masks the underlying complexity of the layers below.
+
+As an illustration, in a simple CPU, there may be 16 functional modules in the top layer. Each module may consist of between 1 and 10 commonly available ICs and each IC may consist of between 10 and 100 gates.
+
+The size of the cpu is also dictated by the word size - the logic requires scales approximately as a linear function of the wordsize. 
+
+A 4-bit machine may be implemented in around 20 ICs, an 8-bit machine in about 40 ICs and a 16-bit machine in about 80 ICs. This is not a hard and fast rule as it depends on the specifics of the machine. It is also possible to trade off hardware complexity against software complexity. In the 1960s when hardware was very expensive, minicomputers were designed to minimise the hardware, but at the expense of difficult programming and more effort required to write software.
+
+A simple stored program computer may be defined by 5 fundamental modules:
+
+Input
+Output
+Memory
+Arithmetic & Logic
+Control
+
+These modules may be further expressed in terms of their function.  For example Input might be in the form of binary toggle switches on the front panel accompanied by LEDs or hex displays to indicate the output. With further complexity, text input and output might be provided from a serial terminal. From the late 1970s and the advent of home computers, input was from an array of some 40+ keyboard switches and output was in character and graphics form to a TV display or CRT monitor.
+
+Memory is often referred to as ROM (permanent storage) or RAM (re-writeable storage). The architecture of the computer is defined either as Harvard or von Neumann, depending on how the cpu connects to the memory. The Harvard model has separate memory spaces to hold the program (ROM) and the data (RAM). The von Neuman model uses less hardware and both the program and the data are contained within the same program space. This hardware simplification leads to a reduction in performance as the von Neumann architecture cannot access both program and data simultaneously.
+
+Memory can also exist in the form of storage registers, where temporary results or operands may be held locally without having to access the main memory. Early minicomputers had very few registers, because of the cost of their implementation in hardware. Instead, almost all cpu operations had to use main memory to store operands and results. 
+
+The popular 6502, designed for low cost and complexity is an example of a microprocessor that uses very few (3) user registers. This was partly compensated for by allowing easy access to the "zero page" of RAM, where operands and results could be stored conveniently.
+
+Most modern processors have a larger number of user registers:  PDP 11 (8), MSP430 (16), AVR (32). This allows greater flexibility in programming and is essential for efficient hosting of high level languages such as C.  
+
+
+
+
+
 # Exercise 1. LEDS and Switches.
 
 This creates a simple LED and Switch interface which allows the user to enter binary data using "toggle" switches and display the data on an array of single LEDs and also in hexadecimal form using the 7-segment display component.
